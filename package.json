@@ -1,0 +1,14 @@
+{
+  "name": "mountebank_sample",
+  "version": "1.0.0",
+  "description": "Demo on using the Mountebank proxy",
+  "main": "rest-api-sample.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luke Merrett",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.87.0"
+  }
+}

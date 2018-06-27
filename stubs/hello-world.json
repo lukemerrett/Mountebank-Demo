@@ -1,0 +1,29 @@
+{
+    "port": 4545,
+    "protocol": "http",
+    "defaultResponse": {
+      "statusCode": 400,
+      "body": "Bad Request",
+      "headers": {}
+    },
+    "stubs": [{
+      "responses": [{
+        "is": {
+          "statusCode": 200,
+          "body": {
+              "message": "Hello World"
+            },
+          "headers": {
+            "content-type": "application/json"
+          }
+        }
+      }],
+      "predicates": [{
+        "and": [{
+          "equals": {
+            "method": "GET"
+          }
+        }]
+      }]
+    }]
+  }
