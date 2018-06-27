@@ -5,28 +5,28 @@
 
 const proxyHost = "http://localhost:2525"
 const impostersEndpoint = `${proxyHost}/imposters`
-const stubConfigFolder = "./stubs"
+const apiConfigFolder = "./apis"
 
 const fs = require("fs")
 const path = require('path')
 const request = require("request")
 
-// Clear all current stubs
+// Clear all current api configs from the server
 request({
   method: "DELETE",
   uri: impostersEndpoint
 })
 
-// Configure all stubs in the "./stubs" folder
-fs.readdir(stubConfigFolder, (err, files) => {
+// Configure all apis in the "./apis" folder
+fs.readdir(apiConfigFolder, (err, files) => {
   files.forEach(file => {
-    let filePath = "./" + path.join(stubConfigFolder, file).replace("\\", "/")
-    let stubConfig = require(filePath)
+    let filePath = "./" + path.join(apiConfigFolder, file).replace("\\", "/")
+    let apiConfig = require(filePath)
 
     request({
       method: "POST",
       uri: impostersEndpoint,
-      json: stubConfig
+      json: apiConfig
     }, (err, response, body) => console.log(body))
   })
 })
