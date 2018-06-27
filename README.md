@@ -1,14 +1,18 @@
 # Mountebank Sample
 
+Demonstrates how to use Mountebank to setup API stubs.  
+
+Comes with a quick way to configure multiple apis locally.
+
 ## Pre-Requisites
 
-* NodeJS v8.9.4+
+* NodeJS v4+
 
 # Setup
 
 Run the below in the root of this repository:
 
-```powershell
+```bash
 npm install -g mountebank
 npm install
 ```
@@ -17,13 +21,23 @@ npm install
 
 Run this command:
 
-```
+```bash
 mb
 ```
 
-Then open http://localhost:2525 in your browse to see it running, alongside the docs.
+Then open http://localhost:2525 in your browser to see it running, alongside the docs.
 
-Running `node index.js` when mb is running will configure it for all stubs in the "stubs/" folder
+Running `node index.js` when mb is running will configure it for all stubs in the `./apis/`"` folder.
+
+If you then open http://localhost:4545 you will get a hello world json response.
+
+# API Config
+
+Each file in the `./apis/` folder represents an API, when configured it will run on `localhost:{port-in-config}`.
+
+You can configure the responses the API should return in the "stubs" section of the configuration.  This lets you match on properties of the request and return an appropriate response.
+
+Full docs on the contract can be found here: http://www.mbtest.org/docs/api/contracts
 
 # Advantages of Mountebank
 
